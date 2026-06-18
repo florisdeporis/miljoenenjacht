@@ -6,7 +6,7 @@ from pygame.locals import *
 pygame.init()
 breedte, hoogte = 600, 400
 scherm = pygame.display.set_mode((breedte, hoogte))
-pygame.display.set_caption("Unix Stuiter Cirkel")
+pygame.display.set_caption("Miljoenenjacht")
 klok = pygame.time.Clock()
 
 def bereken_bankbod(overgebleven_koffers):
@@ -34,7 +34,7 @@ def bereken_bankbod(overgebleven_koffers):
         return None
 
     # 2. Bereken de Verwachte Waarde (het gemiddelde)
-    gemiddelde = sum(overgebleven_koffers) / aantal_koffers
+    gemiddelde = sum(int(overgebleven_koffers)) / aantal_koffers
     
     # 3. Vermenigvuldig met de juiste factor uit de dictionary
     factor = ronde_factoren[aantal_koffers]
@@ -52,9 +52,9 @@ koffer_nummers = [
     15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26
 ]
 overgebleven_koffers = [
-    0.01, 0.20, 0.50, 1, 5, 10, 20, 50, 100, 500, 1000, 2500,
-    5000, 10000, 25000, 50000, 100000, 200000, 300000, 400000,
-    500000, 750000, 1000000, 2000000, 2500000, 5000000
+    '0,01', '0,20', '0,50', '1', '5', '10', '20', '50', '100', '500', '1.000', '2.500',
+    '5.000', '10.000', '25.000', '50.000', '100.000', '200.000', '300.000', '400.000',
+    '500.000', '750.000', '1.000.000', '2.000.000', '2.500.000', '5.000.000'
 ]
 aantal_koffers = len(overgebleven_koffers)
 
@@ -188,15 +188,3 @@ if accepteren == "ja":
     print(f"Dat betekend dat er €{jouw_koffer} in jouw koffer zat.")
 else:
     print(f"Dat betekend dat er €{jouw_koffer} in jouw koffer zit en dat je dus €{jouw_koffer} hebt gewonnen!")
-
-# --- VOORBEELD VAN HOE JE DE FUNCTIE AANROEPT ---
-# Stel dit is je lijst na de eerste ronde (20 koffers over)
-#koffers_ronde_1 = [
-#    0.01, 0.20, 0.50, 1, 5, 50, 1000, 5000, 10000, 25000, 
-#    50000, 200000, 300000, 400000, 500000, 750000, 1000000, 
-#    2000000, 2500000, 5000000
-#]
-
-#bod = bereken_bankbod(koffers_ronde_1)
-#print(f"De bank biedt: € {bod}") 
-# Output zal exact "De bank biedt: € 85000" zijn.
