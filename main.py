@@ -25,6 +25,7 @@ def bereken_bankbod(overgebleven_koffers):
         5:  0.6645,
         4:  0.7650,  # Bij 4 koffers: bank biedt ~76,5% van het gemiddelde
         3:  0.8800,  # Bij 3 koffers: bank biedt 88% van het gemiddelde
+        2:  0.9600   # Bij 2 koffers (finale): bank biedt 96% van het gemiddelde
     }
     
     # Als de functie wordt aangeroepen op een moment dat er geen standaard bod is,
@@ -60,16 +61,133 @@ aantal_koffers = len(overgebleven_koffers)
 print(koffer_nummers)
 jouw_koffer = int(input("Kies een koffer waarvan jij denkt dat er €5.000.000 in zit."))
 koffer_nummers.remove(jouw_koffer)
+print("Je mag 6 koffers openmaken.")
 while aantal_koffers > 20:
     print(koffer_nummers)
     koffer_nummers.remove(int(input("Kies een koffer om open te maken.")))
     gekozen_koffer = random.choice(overgebleven_koffers)
-    print(gekozen_koffer)
+    print(f"Er zit €{gekozen_koffer} in.")
     overgebleven_koffers.remove(gekozen_koffer)
-    print(overgebleven_koffers)
+    print(f"Je houdt deze bedragen over: {overgebleven_koffers}")
     aantal_koffers = len(overgebleven_koffers)
 bod = bereken_bankbod(overgebleven_koffers)
 print(f"De bank biedt €{bod}")
+accepteren = input("Wil je het bod van de bank accepteren? (ja/nee)")
+if accepteren == "ja":
+    print(f"DEAL, je hebt €{bod} gewonnen! We gaan kijken wat je had kunnen winnen als je door was gespeeld.")
+else:
+    print("NO DEAL, je mag 5 koffers openmaken.")
+
+while aantal_koffers > 15:
+    print(koffer_nummers)
+    koffer_nummers.remove(int(input("Kies een koffer om open te maken.")))
+    gekozen_koffer = random.choice(overgebleven_koffers)
+    print(f"Er zit €{gekozen_koffer} in.")
+    overgebleven_koffers.remove(gekozen_koffer)
+    print(f"Je houdt deze bedragen over: {overgebleven_koffers}")
+    aantal_koffers = len(overgebleven_koffers)
+if accepteren != "ja":
+    bod = bereken_bankbod(overgebleven_koffers)
+    print(f"De bank biedt €{bod}")
+    accepteren = input("Wil je het bod van de bank accepteren? (ja/nee)")
+    if accepteren == "ja":
+        print(f"DEAL, je hebt €{bod} gewonnen! We gaan kijken wat je had kunnen winnen als je door was gespeeld.")
+    else:
+        print("NO DEAL, je mag 4 koffers openmaken.")
+
+while aantal_koffers > 11:
+    print(koffer_nummers)
+    koffer_nummers.remove(int(input("Kies een koffer om open te maken.")))
+    gekozen_koffer = random.choice(overgebleven_koffers)
+    print(f"Er zit €{gekozen_koffer} in.")
+    overgebleven_koffers.remove(gekozen_koffer)
+    print(f"Je houdt deze bedragen over: {overgebleven_koffers}")
+    aantal_koffers = len(overgebleven_koffers)
+if accepteren != "ja":
+    bod = bereken_bankbod(overgebleven_koffers)
+    print(f"De bank biedt €{bod}")
+    accepteren = input("Wil je het bod van de bank accepteren? (ja/nee)")
+    if accepteren == "ja":
+        print(f"DEAL, je hebt €{bod} gewonnen! We gaan kijken wat je had kunnen winnen als je door was gespeeld.")
+    else:
+        print("NO DEAL, je mag 3 koffers openmaken.")
+
+while aantal_koffers > 8:
+    print(koffer_nummers)
+    koffer_nummers.remove(int(input("Kies een koffer om open te maken.")))
+    gekozen_koffer = random.choice(overgebleven_koffers)
+    print(f"Er zit €{gekozen_koffer} in.")
+    overgebleven_koffers.remove(gekozen_koffer)
+    print(f"Je houdt deze bedragen over: {overgebleven_koffers}")
+    aantal_koffers = len(overgebleven_koffers)
+if accepteren != "ja":
+    bod = bereken_bankbod(overgebleven_koffers)
+    print(f"De bank biedt €{bod}")
+    accepteren = input("Wil je het bod van de bank accepteren? (ja/nee)")
+    if accepteren == "ja":
+        print(f"DEAL, je hebt €{bod} gewonnen! We gaan kijken wat je had kunnen winnen als je door was gespeeld.")
+    else:
+        print("NO DEAL, je mag 2 koffers openmaken.")
+
+while aantal_koffers > 6:
+    print(koffer_nummers)
+    koffer_nummers.remove(int(input("Kies een koffer om open te maken.")))
+    gekozen_koffer = random.choice(overgebleven_koffers)
+    print(f"Er zit €{gekozen_koffer} in.")
+    overgebleven_koffers.remove(gekozen_koffer)
+    print(f"Je houdt deze bedragen over: {overgebleven_koffers}")
+    aantal_koffers = len(overgebleven_koffers)
+if accepteren != "ja":
+    bod = bereken_bankbod(overgebleven_koffers)
+    print(f"De bank biedt €{bod}")
+    accepteren = input("Wil je het bod van de bank accepteren? (ja/nee)")
+    if accepteren == "ja":
+        print(f"DEAL, je hebt €{bod} gewonnen! We gaan kijken wat je had kunnen winnen als je door was gespeeld.")
+    else:
+        print("NO DEAL, je mag 1 koffer openmaken.")
+
+while aantal_koffers > 3:
+    print(koffer_nummers)
+    koffer_nummers.remove(int(input("Kies een koffer om open te maken.")))
+    gekozen_koffer = random.choice(overgebleven_koffers)
+    print(f"Er zit €{gekozen_koffer} in.")
+    overgebleven_koffers.remove(gekozen_koffer)
+    print(f"Je houdt deze bedragen over: {overgebleven_koffers}")
+    aantal_koffers = len(overgebleven_koffers)
+    if accepteren != "ja":
+        bod = bereken_bankbod(overgebleven_koffers)
+        print(f"De bank biedt €{bod}")
+        accepteren = input("Wil je het bod van de bank accepteren? (ja/nee)")
+        if accepteren == "ja":
+            print(f"DEAL, je hebt €{bod} gewonnen! We gaan kijken wat je had kunnen winnen als je door was gespeeld.")
+        else:
+            print("NO DEAL, je mag 1 koffer openmaken.")
+
+print(koffer_nummers)
+koffer_nummers.remove(int(input("Kies een koffer om open te maken.")))
+gekozen_koffer = random.choice(overgebleven_koffers)
+print(f"Er zit €{gekozen_koffer} in.")
+overgebleven_koffers.remove(gekozen_koffer)
+print(f"Je houdt deze bedragen over: {overgebleven_koffers}")
+aantal_koffers = len(overgebleven_koffers)
+if accepteren != "ja":
+    bod = bereken_bankbod(overgebleven_koffers)
+    print(f"De bank biedt €{bod}")
+    accepteren = input("Wil je het bod van de bank accepteren? (ja/nee)")
+    if accepteren == "ja":
+        print(f"DEAL, je hebt €{bod} gewonnen! We gaan de laatste koffer openmaken.")
+    else:
+        print("NO DEAL, we gaan de laatste koffer openmaken.")
+
+print(koffer_nummers)
+gekozen_koffer = random.choice(overgebleven_koffers)
+print(f"Er zit €{gekozen_koffer} in de laatste koffer.")
+overgebleven_koffers.remove(gekozen_koffer)
+jouw_koffer = random.choice(overgebleven_koffers)
+if accepteren == "ja":
+    print(f"Dat betekend dat er €{jouw_koffer} in jouw koffer zat.")
+else:
+    print(f"Dat betekend dat er €{jouw_koffer} in jouw koffer zit en dat je dus €{jouw_koffer} hebt gewonnen!")
 
 # --- VOORBEELD VAN HOE JE DE FUNCTIE AANROEPT ---
 # Stel dit is je lijst na de eerste ronde (20 koffers over)
