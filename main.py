@@ -9,6 +9,27 @@ scherm = pygame.display.set_mode((breedte, hoogte))
 pygame.display.set_caption("Miljoenenjacht")
 klok = pygame.time.Clock()
 
+def wacht_op_invoer(huidig_scherm_teken_functie, prompt_tekst=""):
+    """Vervangt input(). Wacht tot de speler een getal of ja/nee typt in Pygame."""
+    ingetypt = ""
+    while True:
+        # Teken hier steeds je scherm, anders bevriest het beeld!
+        huidig_scherm_teken_functie(prompt_tekst, ingetypt)
+        
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit(); sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_RETURN: # Speler drukt op Enter
+                    return ingetypt
+                elif event.key == K_BACKSPACE:
+                    ingetypt = ingetypt[:-1]
+                else:
+                    ingetypt += event.unicode
+        
+        pygame.display.flip()
+        klok.tick(30)
+
 def bereken_bankbod(overgebleven_koffers):
     """
     Berekent het bod van de bank op basis van de lijst met overgebleven kofferbedragen.
