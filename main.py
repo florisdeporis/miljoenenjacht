@@ -1,5 +1,7 @@
 import pygame
 import sys
+import random
+from pygame.locals import *
 
 pygame.init()
 breedte, hoogte = 600, 400
@@ -44,14 +46,39 @@ def bereken_bankbod(overgebleven_koffers):
     
     return int(bod_afgerond)
 
+koffer_nummers = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+    15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26
+]
+overgebleven_koffers = [
+    0.01, 0.20, 0.50, 1, 5, 10, 20, 50, 100, 500, 1000, 2500,
+    5000, 10000, 25000, 50000, 100000, 200000, 300000, 400000,
+    500000, 750000, 1000000, 2000000, 2500000, 5000000
+]
+aantal_koffers = len(overgebleven_koffers)
+
+print(koffer_nummers)
+jouw_koffer = int(input("Kies een koffer waarvan jij denkt dat er €5.000.000 in zit."))
+koffer_nummers.remove(jouw_koffer)
+while aantal_koffers > 20:
+    print(koffer_nummers)
+    koffer_nummers.remove(int(input("Kies een koffer om open te maken.")))
+    gekozen_koffer = random.choice(overgebleven_koffers)
+    print(gekozen_koffer)
+    overgebleven_koffers.remove(gekozen_koffer)
+    print(overgebleven_koffers)
+    aantal_koffers = len(overgebleven_koffers)
+bod = bereken_bankbod(overgebleven_koffers)
+print(f"De bank biedt €{bod}")
+
 # --- VOORBEELD VAN HOE JE DE FUNCTIE AANROEPT ---
 # Stel dit is je lijst na de eerste ronde (20 koffers over)
-koffers_ronde_1 = [
-    0.01, 0.20, 0.50, 1, 5, 50, 1000, 5000, 10000, 25000, 
-    50000, 200000, 300000, 400000, 500000, 750000, 1000000, 
-    2000000, 2500000, 5000000
-]
+#koffers_ronde_1 = [
+#    0.01, 0.20, 0.50, 1, 5, 50, 1000, 5000, 10000, 25000, 
+#    50000, 200000, 300000, 400000, 500000, 750000, 1000000, 
+#    2000000, 2500000, 5000000
+#]
 
-bod = bereken_bankbod(koffers_ronde_1)
-print(f"De bank biedt: € {bod}") 
+#bod = bereken_bankbod(koffers_ronde_1)
+#print(f"De bank biedt: € {bod}") 
 # Output zal exact "De bank biedt: € 85000" zijn.
