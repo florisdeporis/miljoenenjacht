@@ -34,7 +34,7 @@ def bereken_bankbod(overgebleven_koffers):
         return None
 
     # 2. Bereken de Verwachte Waarde (het gemiddelde)
-    gemiddelde = sum(int(overgebleven_koffers)) / aantal_koffers
+    gemiddelde = sum(overgebleven_koffers) / aantal_koffers
     
     # 3. Vermenigvuldig met de juiste factor uit de dictionary
     factor = ronde_factoren[aantal_koffers]
@@ -52,9 +52,9 @@ koffer_nummers = [
     15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26
 ]
 overgebleven_koffers = [
-    '0,01', '0,20', '0,50', '1', '5', '10', '20', '50', '100', '500', '1.000', '2.500',
-    '5.000', '10.000', '25.000', '50.000', '100.000', '200.000', '300.000', '400.000',
-    '500.000', '750.000', '1.000.000', '2.000.000', '2.500.000', '5.000.000'
+    0.01, 0.20, 0.50, 1, 5, 10, 20, 50, 100, 500, 1000, 2500,
+    5000, 10000, 25000, 50000, 100000, 200000, 300000, 400000,
+    500000, 750000, 1000000, 2000000, 2500000, 5000000
 ]
 aantal_koffers = len(overgebleven_koffers)
 
@@ -75,6 +75,7 @@ print(f"De bank biedt €{bod}")
 accepteren = input("Wil je het bod van de bank accepteren? (ja/nee)")
 if accepteren == "ja":
     print(f"DEAL, je hebt €{bod} gewonnen! We gaan kijken wat je had kunnen winnen als je door was gespeeld.")
+    print("Je had 5 koffers mogen openmaken.")
 else:
     print("NO DEAL, je mag 5 koffers openmaken.")
 
@@ -94,6 +95,8 @@ if accepteren != "ja":
         print(f"DEAL, je hebt €{bod} gewonnen! We gaan kijken wat je had kunnen winnen als je door was gespeeld.")
     else:
         print("NO DEAL, je mag 4 koffers openmaken.")
+else:
+    print("Je had 4 koffers mogen openmaken.")
 
 while aantal_koffers > 11:
     print(koffer_nummers)
@@ -111,6 +114,8 @@ if accepteren != "ja":
         print(f"DEAL, je hebt €{bod} gewonnen! We gaan kijken wat je had kunnen winnen als je door was gespeeld.")
     else:
         print("NO DEAL, je mag 3 koffers openmaken.")
+else:
+    print("Je had 3 koffers mogen openmaken.")
 
 while aantal_koffers > 8:
     print(koffer_nummers)
@@ -128,6 +133,8 @@ if accepteren != "ja":
         print(f"DEAL, je hebt €{bod} gewonnen! We gaan kijken wat je had kunnen winnen als je door was gespeeld.")
     else:
         print("NO DEAL, je mag 2 koffers openmaken.")
+else:
+    print("Je had 2 koffers mogen openmaken.")
 
 while aantal_koffers > 6:
     print(koffer_nummers)
@@ -145,6 +152,8 @@ if accepteren != "ja":
         print(f"DEAL, je hebt €{bod} gewonnen! We gaan kijken wat je had kunnen winnen als je door was gespeeld.")
     else:
         print("NO DEAL, je mag 1 koffer openmaken.")
+else:
+    print("Je had 1 koffer mogen openmaken.")
 
 while aantal_koffers > 3:
     print(koffer_nummers)
@@ -162,6 +171,8 @@ while aantal_koffers > 3:
             print(f"DEAL, je hebt €{bod} gewonnen! We gaan kijken wat je had kunnen winnen als je door was gespeeld.")
         else:
             print("NO DEAL, je mag 1 koffer openmaken.")
+    else:
+        print("Je had 1 koffer mogen openmaken.")
 
 print(koffer_nummers)
 koffer_nummers.remove(int(input("Kies een koffer om open te maken.")))
@@ -178,6 +189,8 @@ if accepteren != "ja":
         print(f"DEAL, je hebt €{bod} gewonnen! We gaan de laatste koffer openmaken.")
     else:
         print("NO DEAL, we gaan de laatste koffer openmaken.")
+else:
+    print("We gaan de laatste koffer openmaken.")
 
 print(koffer_nummers)
 gekozen_koffer = random.choice(overgebleven_koffers)
@@ -185,6 +198,10 @@ print(f"Er zit €{gekozen_koffer} in de laatste koffer.")
 overgebleven_koffers.remove(gekozen_koffer)
 jouw_koffer = random.choice(overgebleven_koffers)
 if accepteren == "ja":
-    print(f"Dat betekend dat er €{jouw_koffer} in jouw koffer zat.")
+    if jouw_koffer > bod:
+        print(f"Dat betekend dat er €{jouw_koffer} in jouw koffer zat. Je had dus meer dan €{bod} kunnen winnen als je was doorgespeeld.")
+    else:
+        print(f"Dat betekend dat er €{jouw_koffer} in jouw koffer zat. Dat is minder dan jouw €{bod}, dus het is goed dat je bent gestopt!")
 else:
     print(f"Dat betekend dat er €{jouw_koffer} in jouw koffer zit en dat je dus €{jouw_koffer} hebt gewonnen!")
+    
