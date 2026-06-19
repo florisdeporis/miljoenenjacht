@@ -365,7 +365,7 @@ else:
 
 print(koffer_nummers)
 gekozen_koffer = random.choice(overgebleven_koffers)
-wacht_op_invoer(teken_linda, f"Er zit €{formatteer_bedrag(gekozen_koffer)} in de laatste koffer.")
+wacht_op_invoer(teken_linda, f"Er zit €{formatteer_bedrag(gekozen_koffer)} in de laatste koffer. Druk op Enter.")
 overgebleven_koffers.remove(gekozen_koffer)
 jouw_koffer = random.choice(overgebleven_koffers)
 if accepteren == "ja":
