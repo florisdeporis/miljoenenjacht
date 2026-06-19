@@ -29,12 +29,46 @@ ALLE_BEDRAGEN = [
     500000, 750000, 1000000, 2000000, 2500000, 5000000
 ]
 
+def teken_tekst_meerdere_regels(scherm, tekst, font, kleur, x, y, max_breedte):
+    """
+    Knipt een lange tekst netjes af zodat het op meerdere regels past.
+    """
+    woorden = tekst.split(' ')
+    huidige_regel = []
+    
+    for woord in woorden:
+        # We proberen een woord toe te voegen aan onze huidige regel
+        test_regel = huidige_regel + [woord]
+        test_tekst = ' '.join(test_regel)
+        
+        # We vragen aan Pygame: hoe breed is deze zin tot nu toe?
+        breedte, hoogte = font.size(test_tekst)
+        
+        if breedte > max_breedte:
+            # Oeps, te breed! We tekenen de huidige regel (zonder het nieuwe woord)
+            render_tekst = font.render(' '.join(huidige_regel), True, kleur)
+            scherm.blit(render_tekst, (x, y))
+            
+            # We schuiven de y-positie een stukje naar beneden voor de volgende regel
+            y += hoogte + 5 
+            
+            # De nieuwe regel begint met het woord dat niet meer paste
+            huidige_regel = [woord] 
+        else:
+            # Het past nog, we updaten onze huidige regel
+            huidige_regel = test_regel
+            
+    # Vergeet niet de allerlaatste regel te tekenen!
+    if huidige_regel:
+        render_tekst = font.render(' '.join(huidige_regel), True, kleur)
+        scherm.blit(render_tekst, (x, y))
+
 def teken_koffers(prompt_tekst, ingetypt):
     scherm.fill(BLAUW) # Mooie donkerblauwe studio-achtergrond
     
     # Teken de vraag en wat de speler typt
-    tekst_prompt = font_klein.render(prompt_tekst + " " + ingetypt, True, WIT)
-    scherm.blit(tekst_prompt, (20, 20))
+    volledige_zin = prompt_tekst + " " + ingetypt
+    teken_tekst_meerdere_regels(scherm, volledige_zin, font_klein, WIT, 20, 20, 560)
     
     # Teken het grid met koffers
     for i in range(26):
@@ -58,8 +92,8 @@ def teken_bord(prompt_tekst, ingetypt):
     scherm.fill(ZWART)
     
     # Vraag / Typ-veld bovenaan
-    tekst_prompt = font_klein.render(prompt_tekst + " " + ingetypt, True, WIT)
-    scherm.blit(tekst_prompt, (20, 20))
+    volledige_zin = prompt_tekst + " " + ingetypt
+    teken_tekst_meerdere_regels(scherm, volledige_zin, font_klein, WIT, 20, 20, 560)
     
     # We splitsen de 26 bedragen in twee kolommen van 13
     voor_kolom_links = ALLE_BEDRAGEN[:13]
@@ -97,8 +131,8 @@ def teken_linda(prompt_tekst, ingetypt, deal_status=""):
     tekst_linda = font_groot.render("Linda:", True, ZWART)
     scherm.blit(tekst_linda, (50, 50))
     
-    tekst_prompt = font_klein.render(prompt_tekst + " " + ingetypt, True, ZWART)
-    scherm.blit(tekst_prompt, (50, 120))
+    volledige_zin = prompt_tekst + " " + ingetypt
+    teken_tekst_meerdere_regels(scherm, volledige_zin, font_klein, ZWART, 50, 120, 500)
     
     # Als er een deal of no deal is gesloten, schrijf het met koeienletters over het scherm
     if deal_status == "DEAL":
@@ -325,9 +359,11 @@ overgebleven_koffers.remove(gekozen_koffer)
 jouw_koffer = random.choice(overgebleven_koffers)
 if accepteren.lower == "ja":
     if jouw_koffer > bod:
-        wacht_op_invoer(teken_linda, f"Dat betekend dat er €{jouw_koffer} in jouw koffer zat. Je had dus meer dan €{bod} kunnen winnen als je was doorgespeeld.")
+        wacht_op_invoer(teken_linda, f"Dat betekend dat er €{jouw_koffer} in jouw koffer zat. Je had dus meer dan €{bod} kunnen winnen als je was doorgespeeld. Druk op Enter om het spel af te sluiten.")
     else:
-        wacht_op_invoer(teken_linda, f"Dat betekend dat er €{jouw_koffer} in jouw koffer zat. Dat is minder dan jouw €{bod}, dus het is goed dat je bent gestopt!")
+        wacht_op_invoer(teken_linda, f"Dat betekend dat er €{jouw_koffer} in jouw koffer zat. Dat is minder dan jouw €{bod}, dus het is goed dat je bent gestopt! Druk op Enter om het spel af te sluiten.")
 else:
-    wacht_op_invoer(teken_linda, f"Dat betekend dat er €{jouw_koffer} in jouw koffer zit en dat je dus €{jouw_koffer} hebt gewonnen!")
-    
+    wacht_op_invoer(teken_linda, f"Dat betekend dat er €{jouw_koffer} in jouw koffer zit en dat je dus €{jouw_koffer} hebt gewonnen! Druk op Enter om het spel af te sluiten.")
+
+pygame.quit()
+sys.exit()
