@@ -236,14 +236,14 @@ while aantal_koffers > 20:
     gekozen = wacht_op_invoer(teken_koffers, "Kies een koffer om open te maken en druk op Enter:")
     koffer_nummers.remove(int(gekozen))
     gekozen_koffer = random.choice(overgebleven_koffers)
-    wacht_op_invoer(teken_linda, f"Er zit €{formatteer_bedrag(gekozen_koffer)} in. Druk op Enter.")
+    wacht_op_invoer(teken_linda, f"Er zit € {formatteer_bedrag(gekozen_koffer)} in. Druk op Enter.")
     overgebleven_koffers.remove(gekozen_koffer)
     wacht_op_invoer(teken_bord, "Je houdt deze bedragen over. Druk op Enter.")
     aantal_koffers = len(overgebleven_koffers)
 bod = bereken_bankbod(overgebleven_koffers)
-accepteren = wacht_op_invoer(teken_linda, f"De bank biedt €{formatteer_bedrag(bod)}. Wil je het bod van de bank accepteren? Typ 'ja' of 'nee' en druk op Enter:")
+accepteren = wacht_op_invoer(teken_linda, f"De bank biedt € {formatteer_bedrag(bod)}. Wil je het bod van de bank accepteren? Typ 'ja' of 'nee' en druk op Enter:")
 if accepteren == "ja":
-    wacht_op_invoer(teken_linda, f"Je hebt €{formatteer_bedrag(bod)} gewonnen! Druk op Enter.", "DEAL")
+    wacht_op_invoer(teken_linda, f"Je hebt € {formatteer_bedrag(bod)} gewonnen! Druk op Enter.", "DEAL")
     wacht_op_invoer(teken_linda, "We gaan kijken wat je had kunnen winnen als je door was gespeeld. Je had nu 5 koffers mogen openmaken. Druk op Enter.")
 else:
     wacht_op_invoer(teken_linda, "Je mag nu 5 koffers openmaken. Druk op Enter.", "NO DEAL")
@@ -252,15 +252,15 @@ while aantal_koffers > 15:
     gekozen = wacht_op_invoer(teken_koffers, "Kies een koffer om open te maken en druk op Enter:")
     koffer_nummers.remove(int(gekozen))
     gekozen_koffer = random.choice(overgebleven_koffers)
-    wacht_op_invoer(teken_linda, f"Er zit €{formatteer_bedrag(gekozen_koffer)} in. Druk op Enter.")
+    wacht_op_invoer(teken_linda, f"Er zit € {formatteer_bedrag(gekozen_koffer)} in. Druk op Enter.")
     overgebleven_koffers.remove(gekozen_koffer)
     wacht_op_invoer(teken_bord, "Je houdt deze bedragen over. Druk op Enter.")
     aantal_koffers = len(overgebleven_koffers)
 if accepteren != "ja":
     bod = bereken_bankbod(overgebleven_koffers)
-    accepteren = wacht_op_invoer(teken_linda, f"De bank biedt €{formatteer_bedrag(bod)}. Wil je het bod van de bank accepteren? Typ 'ja' of 'nee' en druk op Enter:")
+    accepteren = wacht_op_invoer(teken_linda, f"De bank biedt € {formatteer_bedrag(bod)}. Wil je het bod van de bank accepteren? Typ 'ja' of 'nee' en druk op Enter:")
     if accepteren == "ja":
-        wacht_op_invoer(teken_linda, f"Je hebt €{formatteer_bedrag(bod)} gewonnen! Druk op Enter.", "DEAL")
+        wacht_op_invoer(teken_linda, f"Je hebt € {formatteer_bedrag(bod)} gewonnen! Druk op Enter.", "DEAL")
         wacht_op_invoer(teken_linda, "We gaan kijken wat je had kunnen winnen als je door was gespeeld. Je had nu 4 koffers mogen openmaken. Druk op Enter.")
     else:
         wacht_op_invoer(teken_linda, "Je mag nu 4 koffers openmaken. Druk op Enter", "NO DEAL")
@@ -271,15 +271,15 @@ while aantal_koffers > 11:
     gekozen = wacht_op_invoer(teken_koffers, "Kies een koffer om open te maken en druk op Enter:")
     koffer_nummers.remove(int(gekozen))
     gekozen_koffer = random.choice(overgebleven_koffers)
-    wacht_op_invoer(teken_linda, f"Er zit €{formatteer_bedrag(gekozen_koffer)} in. Druk op Enter.")
+    wacht_op_invoer(teken_linda, f"Er zit € {formatteer_bedrag(gekozen_koffer)} in. Druk op Enter.")
     overgebleven_koffers.remove(gekozen_koffer)
     wacht_op_invoer(teken_bord, "Je houdt deze bedragen over. Druk op Enter.")
     aantal_koffers = len(overgebleven_koffers)
 if accepteren != "ja":
     bod = bereken_bankbod(overgebleven_koffers)
-    accepteren = wacht_op_invoer(teken_linda, f"De bank biedt €{formatteer_bedrag(bod)}. Wil je het bod van de bank accepteren? Typ 'ja' of 'nee' en druk op Enter:")
+    accepteren = wacht_op_invoer(teken_linda, f"De bank biedt € {formatteer_bedrag(bod)}. Wil je het bod van de bank accepteren? Typ 'ja' of 'nee' en druk op Enter:")
     if accepteren == "ja":
-        wacht_op_invoer(teken_linda, f"Je hebt €{formatteer_bedrag(bod)} gewonnen! Druk op Enter.", "DEAL")
+        wacht_op_invoer(teken_linda, f"Je hebt € {formatteer_bedrag(bod)} gewonnen! Druk op Enter.", "DEAL")
         wacht_op_invoer(teken_linda, "We gaan kijken wat je had kunnen winnen als je door was gespeeld. Je had nu 3 koffers mogen openmaken. Druk op Enter.")
     else:
         wacht_op_invoer(teken_linda, "Je mag nu 3 koffers openmaken. Druk op Enter", "NO DEAL")
@@ -290,15 +290,15 @@ while aantal_koffers > 8:
     gekozen = wacht_op_invoer(teken_koffers, "Kies een koffer om open te maken en druk op Enter:")
     koffer_nummers.remove(int(gekozen))
     gekozen_koffer = random.choice(overgebleven_koffers)
-    wacht_op_invoer(teken_linda, f"Er zit €{formatteer_bedrag(gekozen_koffer)} in. Druk op Enter.")
+    wacht_op_invoer(teken_linda, f"Er zit € {formatteer_bedrag(gekozen_koffer)} in. Druk op Enter.")
     overgebleven_koffers.remove(gekozen_koffer)
     wacht_op_invoer(teken_bord, "Je houdt deze bedragen over. Druk op Enter.")
     aantal_koffers = len(overgebleven_koffers)
 if accepteren != "ja":
     bod = bereken_bankbod(overgebleven_koffers)
-    accepteren = wacht_op_invoer(teken_linda, f"De bank biedt €{formatteer_bedrag(bod)}. Wil je het bod van de bank accepteren? Typ 'ja' of 'nee' en druk op Enter:")
+    accepteren = wacht_op_invoer(teken_linda, f"De bank biedt € {formatteer_bedrag(bod)}. Wil je het bod van de bank accepteren? Typ 'ja' of 'nee' en druk op Enter:")
     if accepteren == "ja":
-        wacht_op_invoer(teken_linda, f"Je hebt €{formatteer_bedrag(bod)} gewonnen! Druk op Enter.", "DEAL")
+        wacht_op_invoer(teken_linda, f"Je hebt € {formatteer_bedrag(bod)} gewonnen! Druk op Enter.", "DEAL")
         wacht_op_invoer(teken_linda, "We gaan kijken wat je had kunnen winnen als je door was gespeeld. Je had nu 2 koffers mogen openmaken. Druk op Enter.")
     else:
         wacht_op_invoer(teken_linda, "Je mag nu 2 koffers openmaken. Druk op Enter", "NO DEAL")
@@ -309,15 +309,15 @@ while aantal_koffers > 6:
     gekozen = wacht_op_invoer(teken_koffers, "Kies een koffer om open te maken en druk op Enter:")
     koffer_nummers.remove(int(gekozen))
     gekozen_koffer = random.choice(overgebleven_koffers)
-    wacht_op_invoer(teken_linda, f"Er zit €{formatteer_bedrag(gekozen_koffer)} in. Druk op Enter.")
+    wacht_op_invoer(teken_linda, f"Er zit € {formatteer_bedrag(gekozen_koffer)} in. Druk op Enter.")
     overgebleven_koffers.remove(gekozen_koffer)
     wacht_op_invoer(teken_bord, "Je houdt deze bedragen over. Druk op Enter.")
     aantal_koffers = len(overgebleven_koffers)
 if accepteren != "ja":
     bod = bereken_bankbod(overgebleven_koffers)
-    accepteren = wacht_op_invoer(teken_linda, f"De bank biedt €{formatteer_bedrag(bod)}. Wil je het bod van de bank accepteren? Typ 'ja' of 'nee' en druk op Enter:")
+    accepteren = wacht_op_invoer(teken_linda, f"De bank biedt € {formatteer_bedrag(bod)}. Wil je het bod van de bank accepteren? Typ 'ja' of 'nee' en druk op Enter:")
     if accepteren == "ja":
-        wacht_op_invoer(teken_linda, f"Je hebt €{formatteer_bedrag(bod)} gewonnen! Druk op Enter.", "DEAL")
+        wacht_op_invoer(teken_linda, f"Je hebt € {formatteer_bedrag(bod)} gewonnen! Druk op Enter.", "DEAL")
         wacht_op_invoer(teken_linda, "We gaan kijken wat je had kunnen winnen als je door was gespeeld. Je had nu 1 koffer mogen openmaken. Druk op Enter.")
     else:
         wacht_op_invoer(teken_linda, "Je mag nu 1 koffer openmaken. Druk op Enter", "NO DEAL")
@@ -328,15 +328,15 @@ while aantal_koffers > 3:
     gekozen = wacht_op_invoer(teken_koffers, "Kies een koffer om open te maken en druk op Enter:")
     koffer_nummers.remove(int(gekozen))
     gekozen_koffer = random.choice(overgebleven_koffers)
-    wacht_op_invoer(teken_linda, f"Er zit €{formatteer_bedrag(gekozen_koffer)} in. Druk op Enter.")
+    wacht_op_invoer(teken_linda, f"Er zit € {formatteer_bedrag(gekozen_koffer)} in. Druk op Enter.")
     overgebleven_koffers.remove(gekozen_koffer)
     wacht_op_invoer(teken_bord, "Je houdt deze bedragen over. Druk op Enter.")
     aantal_koffers = len(overgebleven_koffers)
     if accepteren != "ja":
         bod = bereken_bankbod(overgebleven_koffers)
-        accepteren = wacht_op_invoer(teken_linda, f"De bank biedt €{formatteer_bedrag(bod)}. Wil je het bod van de bank accepteren? Typ 'ja' of 'nee' en druk op Enter:")
+        accepteren = wacht_op_invoer(teken_linda, f"De bank biedt € {formatteer_bedrag(bod)}. Wil je het bod van de bank accepteren? Typ 'ja' of 'nee' en druk op Enter:")
         if accepteren == "ja":
-            wacht_op_invoer(teken_linda, f"Je hebt €{formatteer_bedrag(bod)} gewonnen! Druk op Enter.", "DEAL")
+            wacht_op_invoer(teken_linda, f"Je hebt € {formatteer_bedrag(bod)} gewonnen! Druk op Enter.", "DEAL")
             wacht_op_invoer(teken_linda, "We gaan kijken wat je had kunnen winnen als je door was gespeeld. Je had nu 1 koffer mogen openmaken. Druk op Enter.")
         else:
             wacht_op_invoer(teken_linda, "Je mag nu 1 koffer openmaken. Druk op Enter", "NO DEAL")
@@ -346,15 +346,15 @@ while aantal_koffers > 3:
 gekozen = wacht_op_invoer(teken_koffers, "Kies een koffer om open te maken en druk op Enter:")
 koffer_nummers.remove(int(gekozen))
 gekozen_koffer = random.choice(overgebleven_koffers)
-wacht_op_invoer(teken_linda, f"Er zit €{formatteer_bedrag(gekozen_koffer)} in. Druk op Enter.")
+wacht_op_invoer(teken_linda, f"Er zit € {formatteer_bedrag(gekozen_koffer)} in. Druk op Enter.")
 overgebleven_koffers.remove(gekozen_koffer)
 wacht_op_invoer(teken_bord, "Je houdt deze bedragen over. Druk op Enter.")
 aantal_koffers = len(overgebleven_koffers)
 if accepteren != "ja":
     bod = bereken_bankbod(overgebleven_koffers)
-    accepteren = wacht_op_invoer(teken_linda, f"De bank biedt €{formatteer_bedrag(bod)}. Wil je het bod van de bank accepteren? Typ 'ja' of 'nee' en druk op Enter:")
+    accepteren = wacht_op_invoer(teken_linda, f"De bank biedt € {formatteer_bedrag(bod)}. Wil je het bod van de bank accepteren? Typ 'ja' of 'nee' en druk op Enter:")
     if accepteren == "ja":
-        wacht_op_invoer(teken_linda, f"Je hebt €{formatteer_bedrag(bod)} gewonnen! Druk op Enter.", "DEAL")
+        wacht_op_invoer(teken_linda, f"Je hebt € {formatteer_bedrag(bod)} gewonnen! Druk op Enter.", "DEAL")
         wacht_op_invoer(teken_koffers, "We gaan nu de laatste koffer openmaken. Druk op Enter.")
     else:
         wacht_op_invoer(teken_linda, "We gaan nu de laatste koffer openmaken. Druk op Enter", "NO DEAL")
@@ -365,16 +365,16 @@ else:
 
 print(koffer_nummers)
 gekozen_koffer = random.choice(overgebleven_koffers)
-wacht_op_invoer(teken_linda, f"Er zit €{formatteer_bedrag(gekozen_koffer)} in de laatste koffer. Druk op Enter.")
+wacht_op_invoer(teken_linda, f"Er zit € {formatteer_bedrag(gekozen_koffer)} in de laatste koffer. Druk op Enter.")
 overgebleven_koffers.remove(gekozen_koffer)
 jouw_koffer = random.choice(overgebleven_koffers)
 if accepteren == "ja":
     if jouw_koffer > bod:
-        wacht_op_invoer(teken_linda, f"Dat betekend dat er €{formatteer_bedrag(jouw_koffer)} in jouw koffer zat. Je had dus meer dan €{formatteer_bedrag(bod)} kunnen winnen als je was doorgespeeld. Druk op Enter om het spel af te sluiten.")
+        wacht_op_invoer(teken_linda, f"Dat betekend dat er € {formatteer_bedrag(jouw_koffer)} in jouw koffer zat. Je had dus meer dan € {formatteer_bedrag(bod)} kunnen winnen als je was doorgespeeld. Druk op Enter om het spel af te sluiten.")
     else:
-        wacht_op_invoer(teken_linda, f"Dat betekend dat er €{formatteer_bedrag(jouw_koffer)} in jouw koffer zat. Dat is minder dan jouw €{formatteer_bedrag(bod)}, dus het is goed dat je bent gestopt! Druk op Enter om het spel af te sluiten.")
+        wacht_op_invoer(teken_linda, f"Dat betekend dat er € {formatteer_bedrag(jouw_koffer)} in jouw koffer zat. Dat is minder dan jouw € {formatteer_bedrag(bod)}, dus het is goed dat je bent gestopt! Druk op Enter om het spel af te sluiten.")
 else:
-    wacht_op_invoer(teken_linda, f"Dat betekend dat er €{formatteer_bedrag(jouw_koffer)} in jouw koffer zit en dat je dus €{formatteer_bedrag(jouw_koffer)} hebt gewonnen! Druk op Enter om het spel af te sluiten.")
+    wacht_op_invoer(teken_linda, f"Dat betekend dat er € {formatteer_bedrag(jouw_koffer)} in jouw koffer zit en dat je dus € {formatteer_bedrag(jouw_koffer)} hebt gewonnen! Druk op Enter om het spel af te sluiten.")
 
 pygame.quit()
 sys.exit()
