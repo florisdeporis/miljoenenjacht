@@ -226,9 +226,8 @@ overgebleven_koffers = [
 ]
 aantal_koffers = len(overgebleven_koffers)
 
-gekozen_string = wacht_op_invoer(teken_koffers, "Kies een koffer waarvan jij denkt dat er € 5.000.000 in zit en druk op Enter:")
-jouw_koffer = int(gekozen_string)
-koffer_nummers.remove(jouw_koffer)
+jouw_koffer = wacht_op_invoer(teken_koffers, "Kies een koffer waarvan jij denkt dat er € 5.000.000 in zit en druk op Enter:")
+koffer_nummers.remove(int(jouw_koffer))
 
 wacht_op_invoer(teken_linda, f"Jouw koffer is nummer {jouw_koffer}. Je mag nu 6 koffers openmaken. Druk op Enter.")
 wacht_op_invoer(teken_bord, "Dit is het bord met bedragen. Druk op Enter.")
